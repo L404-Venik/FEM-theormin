@@ -1,0 +1,590 @@
+\documentclass{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{vmargin}
+\usepackage{MnSymbol}
+\usepackage{cases}
+\setpapersize{A4}
+\setmarginsrb{2cm}{2cm}{2cm}{2cm}{0pt}{0mm}{0pt}{13mm}
+
+%user commands
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+
+\newenvironment{proof}{\paragraph{Доказательство:}}{\hfill$\blacksquare$}
+\newenvironment{definition}{ \paragraph{Определение:}}{\hfill $\blacktriangleleft$}
+\newenvironment{observation}{ \paragraph{Замечание:}}{}
+\newenvironment{hence}{ \paragraph{Следствие:}}{}
+
+\begin{document}
+
+
+\centerline{\large Теормин по курсу МКЭ для магистров ВМК МГУ}
+\centerline{[проверялся поверхностно, могут встречаться ошибки]}
+
+\begin{equation*}
+	I := \{0 < x < 1\}, \quad \overline{I} := \{0 \leqslant x \leqslant 1\}.
+\end{equation*}
+
+\begin{numcases}
+	\ Lu = -(p(x)u')' + q(x) u = f(x), & 0<x<1;\\
+	u(0) = u(1) = 0;
+\end{numcases}
+\begin{equation}
+	0 < c_0 \leqslant p(x) , \quad 0 < q(x).
+\end{equation}
+
+\begin{equation}\tag{3'}
+	0 < c_0 \leqslant p(x) \leqslant c_1, \quad 0 \leqslant q(x) \leqslant c_2, \quad 0 \leqslant \kappa.
+\end{equation}
+
+
+Дополнительно введём граничные условия
+\begin{equation}\tag{4}
+	u(0) = \mu, \quad p(1) u'(1) + \kappa u(1) = g.
+\end{equation}
+
+\begin{equation}\tag{4'}
+	u(0) = 0, \quad p(1) u'(1) + \kappa u(1) = g.
+\end{equation}
+
+
+\begin{definition}
+	\textbf{Классическим решением} задачи (1),(2) называется функция $u(x) \in C^2(I) \cap  C(\overline{I})$, удовлетворяющее уравнению (1) $\forall x \in I$ и граничным условиям (2).
+\end{definition}
+
+\begin{theorem}
+ Пусть $p(x) \in C^1(\overline{I})$, $q(x)$, $f(x) \in C(\overline{I})$, тогда при выполнении условия (3) классическое решение (1),(2) $\exists !$
+\end{theorem}
+
+\begin{definition}
+	\textbf{Финитной} называется функция $\varphi(x)$, определённая на $\mathbb{R}: \varphi (x) \equiv 0$ вне некоторого отрезка $\mathbb{R}$. Носителем $\varphi (x)$ называется замыкание множества $\{x: \varphi (x) \neq 0\}$, которое обозначается $supp \varphi (x)$.
+	
+\end{definition}
+
+\begin{definition}
+	$D(\mathbb{R}^n)$ - совокупность финитных $C^{\infty}$ функций на $\mathbb{R}^n$.
+\end{definition}
+
+\begin{definition}
+	Функция $f(x)$ называется \textbf{локально суммируемой} на $\mathbb{R}$, если она интегрируема (по Лебегу) на любом отрезке $\mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+	\textbf{Обобщённой производной} (по Соболеву)  функции $f(x)$, локально суммируемой на $\mathbb{R}$, называется локально суммируемая на $\mathbb{R}$ функция $f'(x)$ :
+	\[
+	\int_{-\infty}^{\infty} f'(x) \varphi(x) dx = - \int_{-\infty}^{\infty} f(x) \varphi'(x) dx, \quad \forall \varphi(x) \in D.
+	\]
+\end{definition}
+
+\begin{definition}
+	\textbf{Пространством Соболева} $H^m(I) \equiv W_2^m(I)$ называется множество функций, определённых на $I$ и имеющих на $I$ обобщённую производные до порядка $m$ включительно, для которых 
+	\[
+	||v||_m^2 = \int_0^1 \left( v^2(x) + (v'(x))^2 + ... + (v^{(m)}(x))^2 \right) dx < + \infty.	
+	\]
+\end{definition}
+
+Обозначим 
+$\tilde{H}^1 = \left\lbrace v(x) \in H^1(I), v(0) = 0 \right\rbrace$; 
+$H_0^1 =  \left\lbrace v(x) \in H^1(I), v(0) = v(1) = 0 \right\rbrace$.
+
+\begin{theorem}
+	Пространство $H^m(I)$ является пополнением $C^{\infty}(I)$ по норме $||v||_m^2$.
+\end{theorem}
+
+\begin{theorem}
+	(Вложения)
+	$H^m(I) \subset C^{m-1}(\overline{I})$, $m = 1,2,...$ и $\exists c \equiv const > 0: \forall v(x) \in H^m(I)$ выполнено $||v^{(k)}||_{C(\overline{I})} \leqslant c ||v||_m$, $k = \overline{0,m-1}$. 
+\end{theorem}
+
+\begin{theorem}
+	Пространство $H_0^m(I)$ является пополнением множества финитных функций $C^{\infty}(I)$ по норме $||v||_m^2$.
+\end{theorem}
+
+\begin{definition}
+	\textbf{Обобщённой функцией} $f$ (над пространством $D$) называется линейный непрерывный функционал $(f,\varphi)$, определённый для $\forall \varphi(x) \in D$:
+	\begin{enumerate}
+	\item $(f, \alpha_1 \varphi_1 + \alpha_2 \varphi_2) = \alpha_1 (f,\varphi_1) + \alpha_2 (f,\varphi_2)$, $\forall \varphi_1, \varphi_2 \in D$, $\forall \alpha_1, \alpha_2 \in \mathbb{R}$.
+	\item $\varphi_m \xrightarrow[n \rightarrow 0]{} 0$ в $D$ $\Rightarrow \lim\limits_{n \to 0} (f,\varphi_n) = 0$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Обобщённая функция называется \textbf{регулярной}, если функционал $(f,\varphi)$ допускает представление:
+	\[
+	(f,\varphi) = 	\int_{-\infty}^{\infty} f(x) \varphi(x) dx, \quad \forall \varphi (x) \in D,
+	\]
+	где $f(x)$ - локально суммируемая на $\mathbb{R}$ функция. В противном случае обобщённая функция называется \textbf{сингулярной}.
+\end{definition}
+
+\begin{definition}
+	\textbf{Производной обобщённой функции} $f$ называется обобщённая функция $f'$ определяемая равенством $(f',\varphi) = - (f, \varphi')$, $\forall \varphi (x) \in D$.
+\end{definition}
+
+\begin{definition}
+	\textbf{Решением почти всюду} задачи (1), (2) называется функция $u(x)\in H^2(I) \cap H_0^1(I)$ для которой:
+	\[
+	(Lu - f, v) := \int_0^1 (-(p u')' + qu -f) v dx = 0, \quad \forall v(x) \in C_0^{\infty}(I).
+	\] 
+\end{definition}
+
+\begin{theorem}
+	Пусть $p(x)$ имеет ограниченную (и суммируемую) производную на $I$, $q(x)$ - ограничена на $I$, $f(x) \in H^0(I) \equiv L_2(I)$, тогда при выполнении условий (3) решение почти всюду задачи (1),(2) $\exists !$.
+\end{theorem}
+
+\begin{definition}
+	\textbf{Вариационная задача} - найти $u(x) \in H$: $a(u,v) = l(v)$, $\forall v(x) \in H$, где:
+	\[
+	a(u,v) = \int_0^1 (pu'v' + q uv )dx, \quad l(v) = \int_0^1 f v dx
+	\]
+\end{definition}
+
+\begin{definition}
+	\textbf{Задача минимизации} - найти $u(x) \in H$: $J(u) = \min\limits_{v \in H} J(v)$, где:
+	\[
+	J(v) = \dfrac{1}{2} a(v,v) - l(v).
+	\]
+\end{definition}
+
+\begin{theorem}
+	Вариационная задача и задача минимизации эквивалентны.
+\end{theorem}
+
+\begin{theorem}
+	Решение почти всюду задачи (1),(2) минимизирует функционал $J(v)$ в пространстве $H_0^1(I)$. И функция $u(x) \in H^2(I) \cap H_0^1(I)$, минимизирующая $J(v)$ в $H_0^1(I)$ является решением почти всюду задачи (1),(2).
+\end{theorem}
+
+\begin{definition}
+	\textbf{Обобщённым решением} задачи (1),(2) называется решение вариационной задачи, то есть $u(x) \in H_0^1(I)$: $a(u,v) = l(v)$, $\forall v(x) \in H_0^1(I)$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $p(x)$ и $q(x)$ ограниченные (и суммируемые) на $I$, $f(x) \in H^0(I) \equiv L_2(I)$, тогда при выполнении условий (3) обобщённое решение $\exists !$.
+\end{theorem}
+
+\begin{definition}
+	Если функции среди которых ищется решение вариационной задачи (обобщённое решение), удовлетворяют граничным условиям дифференциальной задачи, то такие условия называются \textbf{главными}. В противном случае условия называются \textbf{естественными}.
+\end{definition}
+
+\bigskip
+
+Пусть $V^h$ - конечномерное подпространство пространства $H_0^1(I)$ размерности $n$. 
+
+\begin{definition}
+	\textbf{Приближённым решением} задачи (1),(2) (и вариационной задачи) \textbf{по методу Галёркина} называется функция $u^h(x) \in V^h$:
+	\[
+	 \quad a(u^h, v^h) = l(v^h), \quad \forall v^h(x) \in V^h.
+	\]
+\end{definition}
+
+\begin{definition}
+	\textbf{Приближённым решением} задачи (1),(2) (и задачи минимизации) \textbf{по методу Ритца} называется функция $u^h(x) \in V^h$:
+	\[
+	J(u^h) = \min\limits_{v^h \in V^h} J(v^h).
+	\]
+\end{definition}
+
+\begin{definition}
+	\textbf{Система Ритца-Галёркина}
+	\[
+	\sum_{j = 1}^n a(\varphi_j, \varphi_k) c_k = \sum_{j = 1}^n l(\varphi_j),  \quad  \forall k = \overline{1,n}.
+	\]
+\end{definition}
+
+Обозначим
+\[
+	S_1^h = \{ v^h(x) \in C(\overline{I}), \ v^h(x)\big|_{e^{(i)}} \in P_1(e^{(i)}), \ i = \overline{1,N} \};
+\]
+\[
+	\overset{\circ}{S}_1^h = \{ v^h(x) \in S_1^h, \ v^h(0) = v^h(1) = 0 \}.
+\]
+
+
+\begin{definition}
+	Введём \textbf{конечно элементное пространство} $\tilde{S}_1^h = \{ v^h(x) \in S_1^h, v(0) = 0 \}$, тогда $\tilde{S}_1^h \subset \tilde{H}_1^h(I)$, $\dim \tilde{S}_1^h = N$ и базис $\{ \varphi_i \}_{i = 1}^N$
+\end{definition}
+
+\begin{definition}
+	\textbf{Конечно элементным решением} называется Галёркинское приближённое решение $u^h \in \tilde{S}_1^h $: $\quad a(u^h, v^h) = l(v^h), \quad \forall v^h(x) \in \tilde{S}_1^h $
+\end{definition}
+
+\bigskip
+
+На элементе $e^{(i)}$:
+$\overrightarrow{u}^{(i)} = [ u_1^{(i)}, u_2^{(i)}, ...]^T$ - вектор узловых значений;
+$\Phi^{(i)}(x) = [\varphi_1^{(i)}(x), \varphi_2^{(i)}(x), ...]^T$ - матрица функций формы.
+
+\begin{definition}
+	\textbf{Локальная матрица жёсткости} $e^{(i)}$
+	\[
+		K_p^{(i)} = \int_{e^{(i)}} \left[ \dfrac{d \Phi^{(i)}}{dx} \right]^T p(x) \left[ \dfrac{d \Phi^{(i)}}{dx} \right] dx
+	\]
+\end{definition}
+
+\begin{definition}
+	\textbf{Локальная матрица массы} $e^{(i)}$
+	\[
+		K_q^{(i)} = \int_{e^{(i)}} \left[ \Phi^{(i)} \right]^T q(x) \left[ \Phi^{(i)} \right] dx
+	\]
+\end{definition}
+
+\[
+	K_{\kappa}^{(N)} = \left[ \Phi_{(1)}^{(N)} \right]^T \kappa \left[ \Phi_{(1)}^{(N)} \right]
+\]
+
+\begin{definition}
+	\textbf{Вектор нагрузки} $e^{(i)}$
+	\[
+		\overrightarrow{F}^{(i)} = \int_{e^{(i)}} f(x) \left[ \Phi^{(i)} \right]^T dx
+	\]
+\end{definition}
+\[
+	\overrightarrow{F}_{g}^{(N)} = g(x) \left[ \Phi_{(1)}^{(N)} \right]^T
+\]
+
+Для линейных элементов:
+\[
+K_p^{(i)} = \dfrac{p}{h^{(i)}}
+\begin{bmatrix}
+1 & -1\\
+-1&  1
+\end{bmatrix};
+\quad
+\overrightarrow{F}^{(i)}  = \dfrac{f h^{(i)} }{2} 
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}.
+\]
+
+Для квадратичных элементов:
+\[
+K_p^{(i)} = \dfrac{p h^{(i)}}{3}
+\begin{bmatrix}
+7 & -8 & 1\\
+-8 & 16 & -8\\
+1 & -8 & 7
+\end{bmatrix}
+\quad
+K_q^{(i)} = \dfrac{q h^{(i)}}{30}
+\begin{bmatrix}
+4 & 2 & -1\\
+2 & 16 & 2\\
+-1 & 2 & 4
+\end{bmatrix}
+\quad
+\overrightarrow{F}^{(i)}  = \dfrac{f h^{(i)} }{6} 
+\begin{bmatrix}
+1\\
+4\\
+1
+\end{bmatrix}.
+\]
+
+\begin{lemma}
+	Сумма коэффициентов каждой строки матрицы жёсткости $K_p^{(i)}$ равна 0.
+\end{lemma}
+
+\begin{lemma}
+	Сумма коэффициентов каждой строки матрицы массы $K_q^{(i)}$ равняется $\int_{e^{(i)}}q(x) dx$.
+\end{lemma}
+
+\begin{definition}
+	Введём \textbf{триангуляцию} $\Omega$, тоесть разбиение на не пересекающиеся треугольники $e^{(i)}$, $i=\overline{1,N(h)}$, $h$ - диаметр разбиения. Будем обозначать $\pi^h$ - триангуляция, удовлетворяющая требованиям:
+	\begin{enumerate}
+	\item Общие стороны соседних треугольников совпадают.
+	\item Точки смены типа граничных условий находятся в вершинах треугольников.
+	\item $\Omega = \bigcup_{i = 1}^{N} e^{(i)} $.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	$\zeta_k = \dfrac{S_k}{S}$ - \textbf{барицентрические координаты} в треугольнике $e$.
+\end{definition}
+
+\[
+	\zeta_j = \dfrac{a_j x + b_j y + c_j}{2S}; \quad a_j = y_{j+1} - y _{j+2}, \quad b_j = x_{j+2} - x_{j+1}, \quad j = 1,2,3.
+\]
+
+\begin{theorem}
+	(Утверждение об интегрировании барицентрического многочлена)
+	\[
+	\int_e \zeta_1^m \zeta_2^n \zeta_3^p dx dy = \dfrac{m!n!p!2!}{(m+n+p+2)!}.	
+	\]
+\end{theorem}
+
+\begin{definition}
+	Биполиномиальные прямоугольные элементы с узлами только на границе называются \textbf{сирендиповым семейством}.
+\end{definition}
+
+\begin{definition}
+	Техника при которой приближённое решение на элементе выражается через те же функции , что и при приближении криволинейной стороны называется \textbf{изопараметрической}.
+\end{definition}
+
+\begin{definition}
+	Метод сходится, если в некоторой норме $||u^h - u|| \xrightarrow[h \to 0]{} 0$, где $h$ - диаметр разбиения.
+\end{definition}
+
+\begin{definition}
+	Метод сходится со скоростью $\mathcal{O}(h^k)$ $(k\geqslant 0)$, если $||u^h - u|| = \mathcal{O}(h^k), h \to 0$.
+\end{definition}
+
+\begin{definition}
+	Билинейный функционал $a(u,v)$ называется \textbf{энергетическим скалярным произведением}, а функционал $||v||_a = \sqrt{a(v,v)}$ называется \textbf{энергетической нормой}.
+\end{definition}
+
+\begin{theorem}
+	Приближённое решение $u^h$ является ортогональной в смысле энергетического скалярного произведения $a(u,v)$ проекцией точного решения $u$ на $H^h$.
+\end{theorem}
+
+\begin{theorem}
+	(Основная) Приближённое решение $u^h$ является наилучшим, в смысле энергетической нормы $||\bullet||_a$, приближением точного решения $u$ в $H^h$, то есть:
+	\[
+	||u^h -u||_a =\inf\limits_{v^h \in H^h} ||v^h - u||_a.
+	\]
+\end{theorem}
+
+\begin{theorem}
+	(Лемма Сеа)
+	Пусть билинейных функционал $a(u,v)$ удовлетворяет условиям:
+	\begin{enumerate}
+	\item $0 < m||v||_H^2 \leqslant a(v,v)$ (коэрцетивность).
+	\item $|a(u,v)| \leqslant M ||u||_H ||v||_H$ (непрерывность).
+	\end{enumerate}
+	тогда: $||u^h -u||_H = \dfrac{M}{m}||v^h - u||_H$, $\forall v^h \in H^h$.
+\end{theorem}
+
+\begin{theorem}
+	(Вложения) Всякая функция из $H^1(I)$ непрерывна на $\overline{I}$, то есть $H^1(I) \subset C(\overline{I})$, при этом.
+	\[
+	||v||_{C(I)} = \max\limits_{x \in \overline{I}} |v(x)| \leqslant \sqrt{2} ||v||_1.	
+	\]
+\end{theorem}
+
+\begin{lemma}
+	$\forall v \in \tilde{H}^1(I)$ $||v||_0 \leqslant ||v'||_0$.
+\end{lemma}
+
+\begin{lemma}
+	$\forall v \in H^2(I) \cap H_0^1(I)$ $||v'||_0 \leqslant ||v''||_0$.
+\end{lemma}
+
+\begin{definition}
+	Величина $|v|_m = ||v^{(m)}||_0$ называется \textbf{полунормой} в пространстве $H^m$.
+\end{definition}
+
+\begin{lemma}
+	В пространствах $\tilde{H}^1(I)$ и $H^2(I) \cap H_0^1(I)$ нормы и полунормы эквивалентны причём
+	\[
+	|v|_1 \leqslant ||v||_1 \leqslant \sqrt{2} |v|_1, \quad \forall v \in \tilde{H}^1(I);	
+	\]
+	\[
+	|v|_2 \leqslant ||v||_2 \leqslant \sqrt{3} |v|_2, \quad \forall v \in H^2(I) \cap H_0^1(I).
+	\]
+\end{lemma}
+
+\begin{lemma}
+	При выполнении условий (3') энергетическая норма соответствующая билинейной форме $a(u,v)$, эквивалентная норме $\tilde{H}^1(I)$, то есть:
+	\[
+	c_3 ||v||_1^2 \leqslant a(v,v) \leqslant c_4 ||v||_1^2. 	
+	\]
+\end{lemma}
+
+\begin{definition}
+	Функция $i_h v(x)$: $i_h v(x_i)= v(x_i)$ называется \textbf{интерполянтом} функции $v(x)$, где $i_h v(x) \in S_1^h$, $v(x) \in C(\overline{I})$.
+\end{definition}
+
+\begin{theorem}
+	Пусть $v(x) \in C^2(\overline{I})$, а $i_h v(x) \in S_1^h$ её интерполянт, тогда:
+	\[
+	|v(x) - i_h v(x)| \leqslant \dfrac{h^2}{8} \max\limits_{x \in \overline{I}} |v''(x)|;	
+	\]
+	\[
+	|(v(x) - i_h v(x))'| \leqslant h \max\limits_{x \in \overline{I}} |v''(x)|.
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Пусть $v(x) \in H^2(I)$, а $i_h v(x) \in S_1^h$ её интерполянт, тогда:
+	\[
+	||v(x) - i_h v(x)||_0 \leqslant h^2 |v(x)|_2;	
+	\]
+	\[
+	||v(x) - i_h v(x)||_1 \leqslant \sqrt{2}h |v(x)|_2.
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Пусть выполнены условия (3'), и точное решение модельной задачи (1)(4') $u(x) \in H^2(I)$, тогда приближённое решение $u^h \in \tilde{S}_1^h$ сходится по норме $||\bullet||_1$ к $u(x)$ со скоростью $\mathcal{O}(h)$: $||u-u^h||_1 \leqslant c h |u|_2$.
+\end{theorem}
+
+\begin{definition}
+	Функция $i_{h,k} v(x) \in S_k^h$: $i_{h,k} v(x_j^{(i)})= v(x_j^{(i)})$ называется \textbf{полиномиальным интерполянтом} функции $v(x) \in C(\overline{I})$.
+\end{definition}
+
+\begin{lemma}
+	Пусть $0 \leqslant t_0 < t_1 < ... < t_k \leqslant 1$, $i_k \hat{v}(t) \in S_k^h$ интерполянт функции $\hat{v}(t) \in H^{k+1}(I)$ с узлами $t_j, j = \overline{0,k}$, тогда $||\hat{v} - i_k \hat{v}||_{k+1} \sim |\hat{v} - i_k \hat{v}|_{k+1} \equiv |\hat{v}|_{k+1}$.
+\end{lemma}
+
+\begin{theorem}
+	Пусть $v(x) \in H^{k+1}(I)$, $i_{h,k} v(x) \in S_k^h$ её интерполянт, тогда:
+	\[
+	||v(x) - i_{h,k} v(x)||_0 \leqslant c h^{k+1} |v(x)|_{k+1};	
+	\]
+	\[
+	||v(x) - i_{h,k} v(x)||_1 \leqslant c h^{k} |v(x)|_{k+1};	
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Пусть выполнены условия (3), и точное решение модельной задачи (1)(4') $u(x) \in H^{k+1}(I)$, тогда приближённое решение $u^h \in \tilde{S}_k^h$ сходится по норме $||\bullet||_1$ к $u(x)$ со скоростью $\mathcal{O}(h^k)$: $||u-u^h||_1 \leqslant c h^k |u|_{k+1}$.
+\end{theorem}
+
+\begin{lemma}
+	$v(t) \in H^1(I)$, $v(0) = 0$, то:
+	\[
+	v(t) = \int_0^1 g_1(t,\xi) v'(\xi) d\xi; \quad g_1(t,\xi) = 
+	\begin{cases}
+	1, 0 < \xi < t;\\
+	0, t < \xi < 1.
+	\end{cases}	
+	\]
+\end{lemma}
+
+\begin{lemma}
+	$v(t) \in H^2(I)$, $v(0) = v(1) = 0$, то:
+	\[
+	v'(t) = \int_0^1 g_2(t,\xi) v''(\xi) d\xi; \quad g_2(t,\xi) = 
+	\begin{cases}
+	\xi, 0 < \xi < t;\\
+	\xi - 1, t < \xi < 1.
+	\end{cases}	
+	\]
+\end{lemma}
+
+\begin{lemma}
+	$v(t) \in H^3(I)$, $v(0) = v(1/2) = v(1) = 0$, то:
+	\[
+	v''(t) = \int_0^1 g_3(t,\xi) v'''(\xi) d\xi; \quad \text{где} \ g_3(t,\xi) - \text{ограничена}.
+	\]
+\end{lemma}
+
+\begin{lemma}
+	$v(t) \in H^4(I)$, $v(0) = v'(0) = v(1) = v'(1) = 0$, то:
+	\[
+	v^{(j)}(t) = \int_0^1 g_{4,j}(t,\xi) v^{(4)}(\xi) d\xi; \quad j = \overline{0,3} 
+	\]
+	где $g_{4,j}(t,\xi)$ - ограничена по $ 0 \leqslant t \leqslant \xi$.
+\end{lemma}
+
+\begin{lemma}
+	$v(t) \in H^{l+1}(I)$, $v(t_j) = 0, 0 \leqslant t_0 < t_1 < ... < t_l \leqslant 1$, то:
+	\[
+	v^{(l)}(t) = \int_0^1 g_{l+1}(t,\xi) v^{(l+1)}(\xi) d\xi;
+	\]
+	где $g_{l+1}(t,\xi)$ - ограничена по $ 0 \leqslant t,\xi \leqslant 1 $.
+\end{lemma}
+
+\begin{lemma}
+	(Неравенство Пуанкаре)
+	$v(t) \in H^1(I)$, $||v||_0^2 \leqslant \dfrac{1}{2} |v|_1^2 + [\int_0^1 v(t) dt]^2$
+\end{lemma}
+
+\begin{lemma}
+	(Эквивалентная нормировка в $H^1$)
+	$v(t) \in H^1(I)$, $||v||_1^2 \sim ||\tilde{v}||_1^2 := |v|_1^2 + [\int_0^1 v(t) dt]^2$
+\end{lemma}
+
+\begin{lemma}
+	(Эквивалентная нормировка в $H^s$)
+	$v(t) \in H^s(I)$, $||v||_s^2 \sim ||\tilde{v}||_s^2 := |v|_s^2 + \sum_{l = 1}^{s-1} [\int_0^1 v^{(l)}(t) dt]^2$
+\end{lemma}
+
+
+\begin{lemma}
+	$\forall v(t) \in H^s(I)$, $\exists p(t) \in P_s(I)$: $\int_0^1 (v(t) - p(t))^{(l)} dt = 0$, $l = \overline{0,s}$.
+\end{lemma}
+
+\begin{lemma}
+	Пусть $v(t) \in H^4(I)$, $i_{h,3} v(x) \in S_{3,1}^h $ её интерполянт. Тогда $||v - i_{h,3} v(x)||_l \leqslant c h^{4-l} |v|_4$, $l = \overline{0,2}$.
+\end{lemma}
+
+
+\begin{theorem}
+	Пусть выполнены условия (3') и $\exists$ решение задачи (1),(4'), тогда $||u||_1 \leqslant c (||f||_0 + |g|)$. Если дополнительно $|p'(x)| \leqslant c_3$, то $|u|_2 \leqslant c (||f||_0 + |g|)$.
+\end{theorem}
+
+\begin{theorem}
+	Пусть выполнены условия (3') и решение модельной задачи $u(x) \in H^{k+1} (I)$. Тогда приближённое решение $u^h \in \tilde{S}_k^h$ сходится к $u(x)$ в норме $||\bullet||_0$ со скоростью $\mathcal{O}(h^{K+1})$, то есть $||u - u^h||_0 \leqslant c h^{k+1} |u|_{k+1}$.
+\end{theorem}
+
+\begin{definition}
+	Точки, в которых разность $u(x)$ и $u^{h}(x)$ является величиной более высокого порядка малости по $h$, чем $||u - u^h||_1$, называются \textbf{точками супер сходимости} МКЭ.
+\end{definition}
+
+\begin{theorem}
+	Пусть выполнены условия (3'), решение модельной задачи (1),(4') $u(x) \in H^{k+1} (I)$, приближённое решение $u^h \in \tilde{S}_k^h$. Тогда узлы КЭ сетки $x_i$ являются точками супер сходимости, причём:
+	\[
+	\max\limits_{i} |u(x_i) - u^h(x_i)| \leqslant c h^{2k} |u|_{k+1}.	
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Пусть выполнены условия (3'), решение модельной задачи (1),(4') $u(x) \in C^{k+1} (\overline{I})$, приближённое решение $u^h \in \tilde{S}_k^h$, тогда
+	\[
+	||u - u^h||_{C (\overline{I})} \leqslant c h^{k + 1} ||u^{(k+1)}||_{C (\overline{I})}.	
+	\]
+\end{theorem}
+
+\begin{definition}
+	$H^2(\Omega) \equiv W_2^2(\Omega)$ - пространство Соболева из функций, обобщённые производные которых до 2-го порядка суммируемы с квадратом, с нормировкой
+	\[
+	||v||_2^2 = ||v||_0^2 + ||\dfrac{\partial v}{\partial x}||_0^2 + ||\dfrac{\partial v}{\partial y}||_0^2 + 
+				||\dfrac{\partial^2 v}{\partial x^2}||_0^2 + 2 ||\dfrac{\partial^2 v}{\partial x \partial y }||_0^2 + ||\dfrac{\partial^2 v}{\partial y^2}||_0^2;
+	\quad ||v||_{\Omega} = \int_0^1 v(x,y) dx dy.
+	\]
+\end{definition}
+
+\begin{definition}
+	\textbf{Диаметром} $h^{(i)}$ треугольного элемента $e^{(i)}$ называется минимальный диаметр круга, содержащего $e^{(i)}$. $\rho ^{(i)}$ - диаметр вписанной в $e^{(i)}$ окружности.
+\end{definition}
+
+\begin{theorem}
+	(Вложения в 2D) Пусть $\Omega$ - ограниченная область из $\mathbb{R}^2$ с полигональной (или гладкой из $C^1$) границей $\partial \Omega$, $v(x,y) \in H^2(\Omega) \Rightarrow ||v||_{C(\overline{\Omega})} \leqslant c ||v||_{H^2(\Omega)}$.
+\end{theorem}
+
+\begin{definition}
+	Триангуляция $\pi^h$ называется  \textbf{регулярной} если $\forall e^{(i)} \in \pi^h$ верно $\rho ^{(i)} \geqslant ch$, где $c = const$ не зависит от $\pi^h$.
+\end{definition}
+
+\begin{definition}
+	Пусть $v(x,y) \in C(\overline{\Omega})$, \textbf{интерполянтом} $v(x,y)$ называется функция $i_{h,1} v(x,y) \in S_1^h$: $i_{h,1} v(x_i,y_i) = v(x_i, y_i)$, где $(x_i,y_i)$ - узлы КЭ сетки.
+\end{definition}
+
+\begin{theorem}
+	Пусть $\pi^h$ регулярная триангуляция полигональной области $\Omega$, $v(x,y) \in H^2(\Omega)$, $ i_{h,1} v(x,y) \in S_1^h$ её интерполянт, тогда $||v -i_{h,1} v(x,y)||_1 \leqslant ch |v|_2 $
+\end{theorem}
+
+\begin{lemma}
+	(Неравенство Фридрихса) Пусть $\Omega$ - открытое ограниченное множество из $\mathbb{R}^2$, $\Omega \subset \{(x,y): 0\leqslant x,y \leqslant l\}$, $v(x,y) \in H_0^1(\Omega)$, то $||v||_0 \leqslant \dfrac{l}{\sqrt{2}} || \nabla v||_0$.
+\end{lemma}
+
+\begin{theorem}
+	Пусть $\pi^h$ регулярная триангуляция полигональной области $\Omega$, $u(x,y) \in H^2(\overline{\Omega})$, $ u^h \in \overset{\circ}{S}_1^h$, тогда $||u - u^h||_1 \leqslant c |u|_2$.
+\end{theorem}
+
+Пусть $\hat{g}(t) \in C[0,1]$. Квадратурная формула $\int_0^1 \hat{g}(t) dt \approx \hat{S}(\hat{g}) = \sum_{l = 1}^{L} \hat{\omega}_l \hat{g}(t_l)$.
+
+\begin{theorem}
+	Пусть в квадратурной формуле $\hat{S}(\hat{g})$ веса $\hat{\omega} > 0$, $L \geqslant k$ и формула точна на множествах степени $m \geqslant k - 1$. Пусть точное решение $u \in H^{k+1}(I)$, а приближённое решение $u^h \in \tilde{S}_k^h$, тогда при выполнении условий (3')
+	\[
+	|| u - u^h||_1 < ch^k |u|_{k+1} + h^{m-k+2}(c_2 ||u||_{k+1} + c_3).	
+	\]
+\end{theorem}
+
+\end{document}
