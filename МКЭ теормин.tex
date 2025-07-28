@@ -110,7 +110,7 @@ $H_0^1 =  \left\lbrace v(x) \in H^1(I), v(0) = v(1) = 0 \right\rbrace$.
 	\textbf{Обобщённой функцией} $f$ (над пространством $D$) называется линейный непрерывный функционал $(f,\varphi)$, определённый для $\forall \varphi(x) \in D$:
 	\begin{enumerate}
 	\item $(f, \alpha_1 \varphi_1 + \alpha_2 \varphi_2) = \alpha_1 (f,\varphi_1) + \alpha_2 (f,\varphi_2)$, $\forall \varphi_1, \varphi_2 \in D$, $\forall \alpha_1, \alpha_2 \in \mathbb{R}$.
-	\item $\varphi_m \xrightarrow[n \rightarrow 0]{} 0$ в $D$ $\Rightarrow \lim\limits_{n \to 0} (f,\varphi_n) = 0$.
+	\item $\varphi_n \xrightarrow[n \rightarrow \infty]{} 0$ в $D$ $\Rightarrow \lim\limits_{n \to \infty} (f,\varphi_n) = 0$.
 	\end{enumerate}
 \end{definition}
 
@@ -217,7 +217,7 @@ $H_0^1 =  \left\lbrace v(x) \in H^1(I), v(0) = v(1) = 0 \right\rbrace$.
 
 На элементе $e^{(i)}$:
 $\overrightarrow{u}^{(i)} = [ u_1^{(i)}, u_2^{(i)}, ...]^T$ - вектор узловых значений;
-$\Phi^{(i)}(x) = [\varphi_1^{(i)}(x), \varphi_2^{(i)}(x), ...]^T$ - матрица функций формы.
+$\Phi^{(i)}(x) = [\varphi_1^{(i)}(x), \varphi_2^{(i)}(x), ...]$ - матрица функций формы.
 
 \begin{definition}
 	\textbf{Локальная матрица жёсткости} $e^{(i)}$
@@ -389,7 +389,7 @@ K_q^{(i)} = \dfrac{q h^{(i)}}{30}
 \end{lemma}
 
 \begin{lemma}
-	При выполнении условий (3') энергетическая норма соответствующая билинейной форме $a(u,v)$, эквивалентная норме $\tilde{H}^1(I)$, то есть:
+	При выполнении условий (3') энергетическая норма соответствующая билинейной форме $a(u,v)$, эквивалентна норме $\tilde{H}^1(I)$, то есть:
 	\[
 	c_3 ||v||_1^2 \leqslant a(v,v) \leqslant c_4 ||v||_1^2. 	
 	\]
