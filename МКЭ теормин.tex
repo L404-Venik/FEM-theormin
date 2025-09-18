@@ -24,8 +24,13 @@
 \begin{document}
 
 
-\centerline{\large Теормин по курсу МКЭ для магистров ВМК МГУ}
-\centerline{[проверялся поверхностно, могут встречаться ошибки]}
+\centerline{\Huge Теормин по курсу} 
+\centerline{\Huge \textbf{Метод Конечных Элементов}}
+\centerline{\Huge для магистров ВМК МГУ}
+
+\centerline{[проверялся, но могут встречаться ошибки]}
+
+\vspace{0.5cm}
 
 \begin{equation*}
 	I := \{0 < x < 1\}, \quad \overline{I} := \{0 \leqslant x \leqslant 1\}.
@@ -238,7 +243,7 @@ $\Phi^{(i)}(x) = [\varphi_1^{(i)}(x), \varphi_2^{(i)}(x), ...]$ - матрица
 \]
 
 \begin{definition}
-	\textbf{Вектор нагрузки} $e^{(i)}$
+	\textbf{Локальный вектор нагрузки} $e^{(i)}$
 	\[
 		\overrightarrow{F}^{(i)} = \int_{e^{(i)}} f(x) \left[ \Phi^{(i)} \right]^T dx
 	\]
@@ -264,7 +269,7 @@ K_p^{(i)} = \dfrac{p}{h^{(i)}}
 
 Для квадратичных элементов:
 \[
-K_p^{(i)} = \dfrac{p h^{(i)}}{3}
+K_p^{(i)} = \dfrac{p }{3h^{(i)}}
 \begin{bmatrix}
 7 & -8 & 1\\
 -8 & 16 & -8\\
@@ -308,7 +313,10 @@ K_q^{(i)} = \dfrac{q h^{(i)}}{30}
 \end{definition}
 
 \[
-	\zeta_j = \dfrac{a_j x + b_j y + c_j}{2S}; \quad a_j = y_{j+1} - y _{j+2}, \quad b_j = x_{j+2} - x_{j+1}, \quad j = 1,2,3.
+	\zeta_j = \dfrac{a_j x + b_j y + c_j}{2S}; \quad
+	a_j = y_{j+1} - y _{j+2}, \quad 
+	b_j = x_{j+2} - x_{j+1}, \quad 
+	c_j = x_{j+1} y_{j+2} - x_{j+2} y_{j+1} \quad j = 1,2,3.
 \]
 
 \begin{theorem}
@@ -327,11 +335,11 @@ K_q^{(i)} = \dfrac{q h^{(i)}}{30}
 \end{definition}
 
 \begin{definition}
-	Метод сходится, если в некоторой норме $||u^h - u|| \xrightarrow[h \to 0]{} 0$, где $h$ - диаметр разбиения.
+	\textbf{Метод сходится}, если в некоторой норме $||u^h - u|| \xrightarrow[h \to 0]{} 0$, где $h$ - диаметр разбиения.
 \end{definition}
 
 \begin{definition}
-	Метод сходится со скоростью $\mathcal{O}(h^k)$ $(k\geqslant 0)$, если $||u^h - u|| = \mathcal{O}(h^k), h \to 0$.
+	\textbf{Метод сходится со скоростью} $\mathcal{O}(h^k)$ $(k\geqslant 0)$, если $||u^h - u|| = \mathcal{O}(h^k), h \to 0$.
 \end{definition}
 
 \begin{definition}
@@ -396,7 +404,7 @@ K_q^{(i)} = \dfrac{q h^{(i)}}{30}
 \end{lemma}
 
 \begin{definition}
-	Функция $i_h v(x)$: $i_h v(x_i)= v(x_i)$ называется \textbf{интерполянтом} функции $v(x)$, где $i_h v(x) \in S_1^h$, $v(x) \in C(\overline{I})$.
+	Функция $i_h v(x)$: $i_h v(x_i)= v(x_i)$ называется \textbf{(линейным) интерполянтом} функции $v(x)$, где $i_h v(x) \in S_1^h$, $v(x) \in C(\overline{I})$.
 \end{definition}
 
 \begin{theorem}
@@ -520,7 +528,7 @@ K_q^{(i)} = \dfrac{q h^{(i)}}{30}
 \end{theorem}
 
 \begin{theorem}
-	Пусть выполнены условия (3') и решение модельной задачи $u(x) \in H^{k+1} (I)$. Тогда приближённое решение $u^h \in \tilde{S}_k^h$ сходится к $u(x)$ в норме $||\bullet||_0$ со скоростью $\mathcal{O}(h^{K+1})$, то есть $||u - u^h||_0 \leqslant c h^{k+1} |u|_{k+1}$.
+	Пусть выполнены условия (3') и решение модельной задачи $u(x) \in H^{k+1} (I)$. Тогда приближённое решение $u^h \in \tilde{S}_k^h$ сходится к $u(x)$ в норме $||\bullet||_0$ со скоростью $\mathcal{O}(h^{k+1})$, то есть $||u - u^h||_0 \leqslant c h^{k+1} |u|_{k+1}$.
 \end{theorem}
 
 \begin{definition}
