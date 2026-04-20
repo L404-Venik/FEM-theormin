@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{vmargin}
+\usepackage{MnSymbol}
+\usepackage{cases}
+\setpapersize{A4}
+\setmarginsrb{2cm}{2cm}{2cm}{2cm}{0pt}{0mm}{0pt}{13mm}
+
+%user commands
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+
+\newenvironment{proof}{\paragraph{Доказательство:}}{\hfill$\blacksquare$}
+\newenvironment{definition}{ \paragraph{Определение:}}{\hfill $\blacktriangleleft$}
+\newenvironment{observation}{ \paragraph{Замечание:}}{}
+\newenvironment{hence}{ \paragraph{Следствие:}}{}
+
+\begin{document}
+
+
+\centerline{\huge Теормин по курсу} 
+\centerline{\huge \textbf{ЧИСЛЕННЫЕ МЕТОДЫ В ИНТЕГРАЛЬНЫХ }}
+\centerline{\huge \textbf{УРАВНЕНИЯХ И ИХ ПРИЛОЖЕНИЯ}}
+\centerline{\huge для магистров ВМК МГУ}
+
+\centerline{[проверялся, но могут встречаться ошибки]}
+
+\vspace{0.5cm}
+
+
+
+\section{Интегралы и интегральные операторы}
+
+
+
+\begin{theorem}
+(Критерий интегрируемости) $\int_{a}^{b}f(x)dx$ существует $\Leftrightarrow$ 
+\begin{enumerate}
+\item $f(x)$ - ограничена;
+\item множество точек разрыва функции имеет меру Лебега равную 0.
+\end{enumerate}
+\end{theorem}
+\vspace{0.2cm}
+
+\noindent
+Пусть $D\in \mathbb{R}^n$, точка $c \in D$.
+$F_c(x)$- функция с особенностью в точке $c$, $F_c(x) \geqslant 0$.
+Пусть 
+$$I = \lim_{d \to 0} \int_{D \backslash U(c)} F_c(x)dx,$$ 
+$$J = \sup_{U(c)} \int_{D \backslash U(c)} F_c(x)dx.$$
+\begin{theorem}
+$I$ и $J$ существуют/не существуют одновременно, и $I = J$, если существуют. 
+\end{theorem}
+
+\begin{theorem}
+(Мажорантный признак сходимости) Пусть $F_c(x)$ и $G_c(x)$ - функции с особенностью в точке $c$ и $0 \leqslant G_c(x) \leqslant F_c(x)$. Тогда если $\exists \int_D F_c(x)dx = I$, то $\exists \int_D G_c(x)dx = J$, причём $J \leqslant I$.
+\end{theorem}
+
+\begin{theorem}
+(Об абсолютной интегрируемости) Пусть $F_c(x)$ не обязательно знакопостоянна. Тогда, если $\exists \int_D |F_c(x)|dx$, то $\exists \int_D F_c(x)dx$
+\end{theorem}
+
+\noindent
+Пусть $D$ - замыкание области (или кривая, или поверхность) в $\mathbb{R}^n$, $D$ - ограничена и замкнута. Пусть $\varphi(x)$ - функция определённая на $D$. 
+\begin{definition}
+\textbf{Интегральным уравнением Фредгольма I рода} называется:
+\begin{equation}
+f(x) = \int_D K(x,y) \varphi(y)dy, \quad x \in D.
+\end{equation}
+
+\begin{itemize}
+\item $K(x,y) \in C[D \times D]$ - с непрерывным ядром;
+\item $K(x,y) = \dfrac{K^*(x,y)}{|x-y|^{\alpha}}$ - с интегральным ядром с полярной особенностью, где $K^*(x,y) \in C[D \times D]$, и $\alpha < \dim D$. 
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Оператор $K(x,y)$ называется \textbf{ограниченным}, если $\exists c: ||f|| \leqslant c ||\varphi||$, $f = K\varphi$.
+\end{definition}
+
+\begin{definition}
+\textbf{Нормой оператора} $K(x,y)$ называется $||K|| = \sup_{\varphi \neq 0} \dfrac{||K\varphi||}{||\varphi||} = \sup_{||\varphi|| = 1} \dfrac{||K\varphi||}{||\varphi||}$.
+\end{definition}
+
+\begin{theorem}
+Если $K(x,y)$ - интегральный оператор с непрерывным ядром, то $K: C(D) \to C(D)$ и ограничен.
+\end{theorem}
+
+
+\section{Элементы теории приближений}
+
+
+
+\section{Численные методы решения интегральных уравнений Фредгольма 2-го рода}
+
+
+
+\section{Численное решение сингулярных интегральных уравнений}
+
+
+
+\end{document}
